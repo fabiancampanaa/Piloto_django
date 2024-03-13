@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-yzwc+zo=hqbbum_%t#9=)-6h$44!*1t=6sj=+fv6)#b$my-z3k
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'www.render.com'
+    'www.render.com',
+    'piloto-django.onrender.com',
 ]
 
 
