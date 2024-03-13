@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-yzwc+zo=hqbbum_%t#9=)-6h$44!*1t=6sj=+fv6)#b$my-z3k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'www.render.com'
+]
 
 
 # Application definition
@@ -74,12 +76,31 @@ WSGI_APPLICATION = 'django_auth.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+import dj_database_url
+
+
+#DATABASES = {
+#    'default': {
+#        "ENGINE": "django.db.backends.postgresql",
+#        'NAME': 'django_ue1y' ,
+#        'USER' : 'django_ue1y_user',
+#        'PASSWORD' : 'jPjVjeTi4vm4rjjulIpfzXtfF6yaye8v',
+#        'HOSTNAME' : 'postgres://django_ue1y_user:jPjVjeTi4vm4rjjulIpfzXtfF6yaye8v@dpg-cnov30gcmk4c738upp90-a.oregon-postgres.render.com/django_ue1y',
+#    }
+#}
+
+
+#DATABASES = {
+#	"default": dj_database_url.parse(os.environ.get('postgres://django_ue1y_user:jPjVjeTi4vm4rjjulIpfzXtfF6yaye8v@dpg-cnov30gcmk4c738upp90-a.oregon-postgres.render.com/django_ue1y'))
+#}
+DATABASES = {}
+
+DATABASES['default'] = dj_database_url.config(
+    default='postgres://django_ue1y_user:jPjVjeTi4vm4rjjulIpfzXtfF6yaye8v@dpg-cnov30gcmk4c738upp90-a.oregon-postgres.render.com/django_ue1y',
+    conn_max_age=600,
+    conn_health_checks=True,
+)
+
 
 
 # Password validation
