@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piloto Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos.css' %}">
+</head>
+<body>
+    <h1>Home</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Login</button>
+    </form>
+    {% if error  %}
+        <h2>{{error}}</h2>
+    {% endif %}
+
+
+    <a href="registro">Registrarse</a>
+</body>
+</html>
